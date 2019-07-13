@@ -16,7 +16,7 @@ app.use(cors());
     End point to scrape google flights for one way tickets between the 
     origin airport code and the destination airport between two dates 
     and find the lowest rate between those two dates 
-    Query => { origin_airport_code, des_airport_code, from, to }
+    Query => { origin_airport, des_airport, from, to }
     Response => { data : [...] }
 */
 app.get('/flights', (req, res) => {
@@ -26,15 +26,15 @@ app.get('/flights', (req, res) => {
 
     //Fetch params
     var {
-        origin_airport_code = '',
-        des_airport_code = '',
+        origin_airport = '',
+        des_airport = '',
         from,
         to
     } = req.query || {}
 
     scrape(
-        origin_airport_code,
-        des_airport_code,
+        origin_airport,
+        des_airport,
         from,
         to
     ).then(data => {
