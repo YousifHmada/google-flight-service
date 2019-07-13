@@ -86,7 +86,10 @@ module.exports = async function scrape(
 ) {
     var origin_airport_code = await get_airport_code(origin_airport)
     var des_airport_code = await get_airport_code(des_airport)
-    return get_dates(reformat(from), reformat(to))
-        .map(date => get_flights(origin_airport_code, des_airport_code, date))
-        // .reduce((agg, c) => agg.concat(c), []).sort((p, c) => c.price.slice(1) - p.price.slice(1))
+    return Promise.all(
+        get_dates(reformat(from), reformat(to))
+            .map(date => get_flights(origin_airport_code, des_airport_code, date))
+    ).then(
+        data => data.reduce((agg, c) => agg.concat(c), []).sort((p, c) => p.price.slice(1) - c.price.slice(1))
+    )
 }
