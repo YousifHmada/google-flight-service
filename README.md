@@ -46,4 +46,6 @@
 - cd google-flight-service/
 - npm install
 - node server.js
-- curl localhost:3000/flights?origin_airport=Cairo&des_airport=Spain&from=07-30-2019&to=08-01-2019
+- open http://localhost:3000/status
+- open http://localhost:3000/flights?origin_airport=Cairo&des_airport=Spain&from=07-30-2019&to=08-01-2019
+- open http://localhost:3000/status
