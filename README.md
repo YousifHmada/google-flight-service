@@ -45,4 +45,4 @@
 - git clone https://github.com/YousifHmada/google-flight-service.git
 - npm install
 - node server.js
-- curl localhost:3000/flights?origin_airport_code=Cairo&des_airport_code=Spain&from=07-30-2019&to=08-01-2019
+- curl localhost:3000/flights?origin_airport=Cairo&des_airport=Spain&from=07-30-2019&to=08-01-2019
