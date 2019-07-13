@@ -14,5 +14,8 @@
     "cors": "^2.8.5",
     "exprss": "0.0.1-security",
     "puppeteer": "^1.18.1"
+  },
+  "engines": {
+    "node": "10.x"
   }
 }
