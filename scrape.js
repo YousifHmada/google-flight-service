@@ -49,7 +49,12 @@ var get_airport_code = airport_name => axios.get(`https://clients1.google.com/co
  * @returns {Airport[]} Airport => { name, logo, duration, start-end, stops, price, date }
  */
 var get_flights = async (origin_airport_code, des_airport_code, from) => {
-    const browser = await puppeteer.launch();
+    const browser = await puppeteer.launch({
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+        ],
+    })
     const page = await browser.newPage();
     await page.goto(
         `https://www.google.com/flights?hl=en#flt=${origin_airport_code}.${des_airport_code}.${from};c:USD;e:1;so:1;sd:1;t:f;tt:o`,
