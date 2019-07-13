@@ -28,10 +28,8 @@ app.get('/flights', (req, res) => {
     var {
         origin_airport_code = '',
         des_airport_code = '',
-        //Default current date
-        from = new Date(),
-        //Default week after current date
-        to = (date => (date.setDate(date.getDate() + 7), date))(new Date())
+        from,
+        to
     } = req.query || {}
 
     scrape(
